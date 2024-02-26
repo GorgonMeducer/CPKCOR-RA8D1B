@@ -22,9 +22,33 @@ void hal_entry(void)
 
     printf("Hello CKPCOR-RA8D1! \r\n");
     
-    coremark_main();
+    uint64_t dwInstructions = perfc_pmu_get_instruction_count();
+    uint32_t dwInsCalib = perfc_pmu_get_instruction_count() - dwInstructions;
+    int64_t lCycles = 0;
     
+    dwInstructions = perfc_pmu_get_instruction_count();
+    
+    __cycleof__("Coremark", { lCycles = __cycle_count__; }) {
+#ifdef __PERF_COUNTER_COREMARK__
+    coremark_main();
+#endif
+    }
+    dwInstructions = perfc_pmu_get_instruction_count() - dwInstructions - dwInsCalib;
+    
+    printf( "\r\n"
+            "No. Instrunctions: %lld\r\n"
+            "Cycle Used: %lld\r\n"
+            "Cycles per Instructions: %3.3f \r\n", 
+
+            dwInstructions,
+            lCycles,
+            (double)lCycles / (double)dwInstructions);
+    
+
     while(1) {
+        delay_ms(1000ul);
+        printf("[%016llx]", get_system_ticks());
+        printf("%lld\r\n", get_system_ms());
     }
     
 #if BSP_TZ_SECURE_BUILD
