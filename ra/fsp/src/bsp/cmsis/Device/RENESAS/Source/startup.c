@@ -72,15 +72,15 @@ __NO_RETURN
 void Reset_Handler (void)
 {
 
-//#include "memory_regions.scat"
-//    register uint32_t uMSP = __get_MSP();
-//    __set_MSP(RAM_START + RAM_LENGTH);      /* make it possible to use stack safely */
-//    
-//    /* initialize DTCM and ITCM to a known status */
-//    memset((uint64_t *)DTCM_START, 0, DTCM_LENGTH);
-//    memset((uint64_t *)ITCM_START, 0, ITCM_LENGTH);
-//    
-//    __set_MSP(uMSP);
+#include "memory_regions.scat"
+    register uint32_t uMSP = __get_MSP();
+    __set_MSP(RAM_START + RAM_LENGTH - 8);      /* make it possible to use stack safely */
+    
+    /* initialize DTCM and ITCM to a known status */
+    memset((uint64_t *)DTCM_START, 0, DTCM_LENGTH);
+    memset((uint64_t *)ITCM_START, 0, ITCM_LENGTH);
+    
+    __set_MSP(uMSP);
     
     /* Initialize system using BSP. */
     SystemInit();

@@ -22,9 +22,9 @@ void hal_entry(void)
 
     printf("Hello CKPCOR-RA8D1! \r\n");
     
+    coremark_main();
+    
     while(1) {
-        printf("%lld\r\n", get_system_ms());
-        delay_ms(1000);
     }
     
 #if BSP_TZ_SECURE_BUILD
