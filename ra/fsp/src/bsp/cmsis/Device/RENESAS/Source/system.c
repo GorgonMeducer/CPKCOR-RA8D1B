@@ -342,9 +342,9 @@ void SystemInit (void)
     R_MPU_SPMON->SP[0].CTL = 1U;
 #endif
 
-#if BSP_FEATURE_TZ_HAS_TRUSTZONE
-    __set_MSPLIM(BSP_PRV_STACK_LIMIT);
-#endif
+//#if BSP_FEATURE_TZ_HAS_TRUSTZONE
+//    __set_MSPLIM(BSP_PRV_STACK_LIMIT);
+//#endif
 
 #if BSP_CFG_C_RUNTIME_INIT
 

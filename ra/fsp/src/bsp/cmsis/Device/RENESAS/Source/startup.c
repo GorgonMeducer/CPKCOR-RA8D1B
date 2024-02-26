@@ -53,24 +53,66 @@ typedef void (* exc_ptr_t)(void);
  **********************************************************************************************************************/
 void    Reset_Handler(void);
 void    Default_Handler(void);
-int32_t main(void);
+
+#if defined(__MICROLIB)
+extern
+void __main_after_scatterload(void);
+#else
+extern
+void __rt_entry(void);
+#endif
+
+extern
+void __main(void);
 
 /*******************************************************************************************************************//**
  * MCU starts executing here out of reset. Main stack pointer is set up already.
  **********************************************************************************************************************/
+__NO_RETURN
 void Reset_Handler (void)
 {
+
+//#include "memory_regions.scat"
+//    register uint32_t uMSP = __get_MSP();
+//    __set_MSP(RAM_START + RAM_LENGTH);      /* make it possible to use stack safely */
+//    
+//    /* initialize DTCM and ITCM to a known status */
+//    memset((uint64_t *)DTCM_START, 0, DTCM_LENGTH);
+//    memset((uint64_t *)ITCM_START, 0, ITCM_LENGTH);
+//    
+//    __set_MSP(uMSP);
+    
     /* Initialize system using BSP. */
     SystemInit();
 
+    /*
+    SystemInit()
+       - Before Scatter loadingzhe
+       
+    __main()
+       - Scatter loading
+       - C Lib init
+
+       - Constructor
+          - BSP Init
+    */
+
+    SCB_EnableDCache();
+
+#if defined(__MICROLIB)
+    __main_after_scatterload();
+#else
+    __rt_entry();
+#endif
     /* Call user application. */
-    main();
+    //main();
 
     while (1)
     {
         /* Infinite Loop. */
     }
 }
+
 
 /*******************************************************************************************************************//**
  * Default exception handler.

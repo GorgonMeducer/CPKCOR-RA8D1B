@@ -1,5 +1,8 @@
 #include "hal_data.h"
 #include "stdio.h"
+#include "SEGGER_RTT.h"
+#include "perf_counter.h"
+
 FSP_CPP_HEADER
 void R_BSP_WarmStart(bsp_warm_start_event_t event);
 FSP_CPP_FOOTER
@@ -13,14 +16,17 @@ volatile char data_out[256] = {0};
 void hal_entry(void)
 {
     /* TODO: add your own code here */
-    SCB_EnableDCache();
-    g_uart3.p_api->open(g_uart3.p_ctrl, g_uart3.p_cfg);
-    while(1)
-    {
-        sprintf(data_out, "hello RA8D1 helium!\r\n");
-        g_uart3.p_api->write(g_uart3.p_ctrl, (uint8_t const*)data_out, strlen(data_out));
-        R_BSP_SoftwareDelay(100,1000);
+
+    SEGGER_RTT_Init();
+    init_cycle_counter(false);
+
+    printf("Hello CKPCOR-RA8D1! \r\n");
+    
+    while(1) {
+        printf("%lld\r\n", get_system_ms());
+        delay_ms(1000);
     }
+    
 #if BSP_TZ_SECURE_BUILD
     /* Enter non-secure code */
     R_BSP_NonSecureEnter();
