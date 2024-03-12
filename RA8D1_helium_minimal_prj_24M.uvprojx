@@ -193,7 +193,7 @@
             <useUlib>0</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
-            <nSecure>0</nSecure>
+            <nSecure>2</nSecure>
             <RoSelD>0</RoSelD>
             <RwSelD>0</RwSelD>
             <CodeSel>0</CodeSel>
@@ -423,6 +423,16 @@
               <FileName>platform.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\platform\platform.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Application</GroupName>
+          <Files>
+            <File>
+              <FileName>test_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\test_main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -861,6 +871,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Application</GroupName>
+          <Files>
+            <File>
+              <FileName>test_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\test_main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
@@ -931,21 +951,14 @@
           </targetInfo>
         </targetInfos>
       </component>
-      <component Cclass="Utilities" Cgroup="perf_counter" Csub="Benchmark" Cvariant="Coremark" Cvendor="GorgonMeducer" Cversion="1.1.2" condition="perf_counter">
+      <component Cclass="Utilities" Cgroup="perf_counter" Csub="Core" Cvariant="Source" Cvendor="GorgonMeducer" Cversion="2.3.1" condition="CMSIS-CORE">
         <package name="perf_counter" schemaVersion="1.7.28" url="https://raw.githubusercontent.com/GorgonMeducer/perf_counter/CMSIS-Pack/cmsis-pack/" vendor="GorgonMeducer" version="9.9.9"/>
         <targetInfos>
           <targetInfo name="Debug"/>
           <targetInfo name="Release"/>
         </targetInfos>
       </component>
-      <component Cclass="Utilities" Cgroup="perf_counter" Csub="Core" Cvariant="Source" Cvendor="GorgonMeducer" Cversion="2.3.0" condition="CMSIS-CORE">
-        <package name="perf_counter" schemaVersion="1.7.28" url="https://raw.githubusercontent.com/GorgonMeducer/perf_counter/CMSIS-Pack/cmsis-pack/" vendor="GorgonMeducer" version="9.9.9"/>
-        <targetInfos>
-          <targetInfo name="Debug"/>
-          <targetInfo name="Release"/>
-        </targetInfos>
-      </component>
-      <component Cclass="Utilities" Cgroup="perf_counter" Csub="Porting" Cvariant="PMU" Cvendor="GorgonMeducer" Cversion="1.0.0" condition="PMU Devices">
+      <component Cclass="Utilities" Cgroup="perf_counter" Csub="Porting" Cvariant="PMU" Cvendor="GorgonMeducer" Cversion="1.1.1" condition="PMU Devices">
         <package name="perf_counter" schemaVersion="1.7.28" url="https://raw.githubusercontent.com/GorgonMeducer/perf_counter/CMSIS-Pack/cmsis-pack/" vendor="GorgonMeducer" version="9.9.9"/>
         <targetInfos>
           <targetInfo name="Debug"/>
@@ -962,22 +975,16 @@
     </components>
     <files>
       <file attr="config" category="sourceC" name="benchmark\coremark_port\core_portme.c" version="1.1.2">
-        <instance index="0">RTE\Utilities\core_portme.c</instance>
-        <component Cclass="Utilities" Cgroup="perf_counter" Csub="Benchmark" Cvariant="Coremark" Cvendor="GorgonMeducer" Cversion="1.1.2" condition="perf_counter"/>
+        <instance index="0" removed="1">RTE\Utilities\core_portme.c</instance>
+        <component Cclass="Utilities" Cgroup="perf_counter" Csub="Benchmark" Cvariant="Coremark" Cvendor="GorgonMeducer" Cversion="1.1.3" condition="perf_counter"/>
         <package name="perf_counter" schemaVersion="1.7.28" url="https://raw.githubusercontent.com/GorgonMeducer/perf_counter/CMSIS-Pack/cmsis-pack/" vendor="GorgonMeducer" version="9.9.9"/>
-        <targetInfos>
-          <targetInfo name="Debug"/>
-          <targetInfo name="Release"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="header" name="benchmark\coremark_port\core_portme.h" version="1.1.2">
-        <instance index="0">RTE\Utilities\core_portme.h</instance>
-        <component Cclass="Utilities" Cgroup="perf_counter" Csub="Benchmark" Cvariant="Coremark" Cvendor="GorgonMeducer" Cversion="1.1.2" condition="perf_counter"/>
+        <instance index="0" removed="1">RTE\Utilities\core_portme.h</instance>
+        <component Cclass="Utilities" Cgroup="perf_counter" Csub="Benchmark" Cvariant="Coremark" Cvendor="GorgonMeducer" Cversion="1.1.3" condition="perf_counter"/>
         <package name="perf_counter" schemaVersion="1.7.28" url="https://raw.githubusercontent.com/GorgonMeducer/perf_counter/CMSIS-Pack/cmsis-pack/" vendor="GorgonMeducer" version="9.9.9"/>
-        <targetInfos>
-          <targetInfo name="Debug"/>
-          <targetInfo name="Release"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
     </files>
   </RTE>

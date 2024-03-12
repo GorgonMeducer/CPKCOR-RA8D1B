@@ -135,7 +135,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>JL2CM3</Key>
-          <Name>-U1085216022 -O78 -S2 -ZTIFSpeedSel5000 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight SW-DP") -D00(6BA02477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO15 -FD22000000 -FC2000 -FN3 -FF0RA8D1_2M.FLM -FS02000000 -FL01F8000 -FP0($$Device:R7FA8D1BH$Flash\RA8D1_2M.FLM) -FF1RA8D1_DATA_C2M.FLM -FS127000000 -FL13000 -FP1($$Device:R7FA8D1BH$Flash\RA8D1_DATA_C2M.FLM) -FF2RA8D1_CCONF.FLM -FS2300A100 -FL2200 -FP2($$Device:R7FA8D1BH$Flash\RA8D1_CCONF.FLM)</Name>
+          <Name>-U1085216022 -O78 -S8 -ZTIFSpeedSel50000 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight SW-DP") -D00(6BA02477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO15 -FD22000000 -FC2000 -FN3 -FF0RA8D1_2M.FLM -FS02000000 -FL01F8000 -FP0($$Device:R7FA8D1BH$Flash\RA8D1_2M.FLM) -FF1RA8D1_DATA_C2M.FLM -FS127000000 -FL13000 -FP1($$Device:R7FA8D1BH$Flash\RA8D1_DATA_C2M.FLM) -FF2RA8D1_CCONF.FLM -FS2300A100 -FL2200 -FP2($$Device:R7FA8D1BH$Flash\RA8D1_CCONF.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -148,7 +148,7 @@
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>2</SubType>
-          <ItemText>0xE000EDFC</ItemText>
+          <ItemText>0xE0003000</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
@@ -440,7 +440,7 @@
 
   <Group>
     <GroupName>platform</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -453,6 +453,26 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\src\platform\platform.c</PathWithFileName>
       <FilenameWithoutPath>platform.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+  </Group>
+
+  <Group>
+    <GroupName>Application</GroupName>
+    <tvExp>1</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>7</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\src\test_main.c</PathWithFileName>
+      <FilenameWithoutPath>test_main.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -476,7 +496,7 @@
 
   <Group>
     <GroupName>::Flex Software</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>1</RteFlg>
